@@ -9,7 +9,7 @@ var underscores =[];
 for (i=0; positions>i; i++){
     underscores.push("_")
 }
-//wrong guess
+//wrong guess array
 var wrongGuess =[];
 //grab html element
 var wordGuess = document.getElementById("word-guess");
@@ -17,7 +17,7 @@ var wrongGuesses = document.getElementById("wrong-guesses");
 //push _ placements into html element
     wordGuess.textContent = underscores.join(" ");
 
-//user guesses a letter
+// user guesses a letter
 document.onkeyup = function(event) { 
 
         var userGuess = event.key;
@@ -36,12 +36,13 @@ document.onkeyup = function(event) {
         wrongGuess.push(userGuess);
         wrongGuesses.textContent = wrongGuess.join(" ")
         }
-        var wrongGuessCount = wrongGuess.join("");
-        var winWord = underscores.join("");
-        if (winWord===randomWord){
+       
+        // if you guess all the letters of the word you win!
+        if (underscores.join("")===randomWord){
             alert("YOU WIN!");
         }
-        else if(wrongGuessCount.length===5){
+        // 5 wrong guesses and you lose!
+        else if(wrongGuess.join("").length===5){
             alert("YOU LOSE!");
         }
     }

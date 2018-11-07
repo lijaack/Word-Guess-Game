@@ -1,5 +1,5 @@
 //list of possible words
-var randomWordArray =["aliens", "earth", "star", "meteor", "venus", "jupiter", "planet"];
+var randomWordArray =["aliens", "earth", "stars", "meteor", "venus", "jupiter", "planet", "galaxy", "universe"];
 //generate a random word from the array
 var randomWord = randomWordArray[Math.floor(Math.random() * randomWordArray.length)];
 // check the randomWord length
@@ -42,7 +42,7 @@ document.onkeyup = function(event) {
             alert("YOU WIN!");
         }
         // 5 wrong guesses and you lose!
-        else if(wrongGuess.join("").length===5){
+        else if(wrongGuess.join("").length>=5){
             alert("YOU LOSE!");
         }
     }

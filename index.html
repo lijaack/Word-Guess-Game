@@ -10,21 +10,32 @@
 
 </head>
 <body>
-    <header>
-        <h1>Word Guess Game</h1>
-        <h2>Theme: Space</h2>
-    </header>
-    <div>
-        <img src="" alt=>
-        <img src="" alt=>
-    </div>
-    <div>
-        <p>Guess the word: <span id="word-guess"></span></p>
-    </div>
-    <div>
-        <p>your wrong guesses: <span id="wrong-guesses"></span></p>
-    </div>
-    
+    <main class="main-background">
+        <section class="container">
+            
+            <header>
+                <div class="row justify-content-center">
+                    <h1 class="text-light">Word Guess Game</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <h2 class="text-light">Theme: Space</h2>
+                </div>
+            </header>
+            <div class="row justify-content-center">
+                <img src="" alt=>
+                <img src="" alt=>
+            </div>
+            <div class="row justify-content-center">
+                <p class="text-light">Guess the word: <span id="word-guess"></span></p>
+            </div>
+            <div class=" row justify-content-center">                
+                    <p class="text-light">Five wrong guesses and you lose! <p>
+            </div>
+            <div class="row justify-content-center">
+                <p class="text-light" id="wrong-guesses"></p>
+            </div>
+        </section>
+    </main>
     
     
     <script src="assets/javascript/game.js"></script>

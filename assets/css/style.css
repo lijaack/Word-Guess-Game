@@ -1,4 +1,18 @@
 .main-background {
-    background-image: url("../images/galaxy.jpg");
+    background-image: url("../images/space.jpg");
     height: 100vh;
+    width:100%
+}
+
+.fontsize30 {
+    font-size:30px;
+}
+
+.fontsize20 {
+    font-size:20px;
+}
+
+.spacebetween {
+    margin-right:10px;
+    margin-left:10px;
 }

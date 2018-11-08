@@ -15,23 +15,29 @@
             
             <header>
                 <div class="row justify-content-center">
-                    <h1 class="text-light">Word Guess Game</h1>
+                    <h1 class="text-light">Guess the Word!</h1>
                 </div>
                 <div class="row justify-content-center">
                     <h2 class="text-light">Theme: Space</h2>
                 </div>
             </header>
             <div class="row justify-content-center">
-                <img src="" alt=>
-                <img src="" alt=>
+                <img id="word-images" src="assets/images/galaxy.jpg" alt="picture" width=200px height=200px>
             </div>
-            <div class="row justify-content-center">
-                <p class="text-light">Guess the word: <span id="word-guess"></span></p>
+            <div class="row justify-content-center fontsize20">
+                <p class="text-light spacebetween">Wins: <span id="wincount">0</span></p>
+                <p class="text-light spacebetween"> Loses: <span id="losecount">0</span></p>
             </div>
-            <div class=" row justify-content-center">                
-                    <p class="text-light">Five wrong guesses and you lose! <p>
+            <div class="row justify-content-center fontsize30">
+                <p class="text-light border-bottom border-light">Guess the word:</p>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center fontsize20">
+                <p class="text-light" id="word-guess"></p>
+            </div>
+            <div class="row justify-content-center fontsize30 ">                
+                <p class="text-light border-bottom border-light"><span id="wrong-guesses-left">5</span> wrong guesses remaining </p>
+            </div>
+            <div class="row justify-content-center fontsize20">
                 <p class="text-light" id="wrong-guesses"></p>
             </div>
         </section>

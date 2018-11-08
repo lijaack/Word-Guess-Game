@@ -4,7 +4,7 @@ var loses = 0;
 
 
     //list of possible words
-    var randomWordArray =["abaaeebeaaabeeebbbb", "meteor", "universe"];
+    var randomWordArray =["earth", "meteor", "universe", "aliens", "jupiter", "galaxy", "spaceship", "asteroid"];
     //generate a random word from the array
     var randomWord = randomWordArray[Math.floor(Math.random() * randomWordArray.length)];
     // check the randomWord length

@@ -26,48 +26,50 @@ var loses = 0;
         wordGuess.textContent = underscores.join(" ");
 
     // user guesses a letter
+   
+        document.onkeyup = function(event) { 
+            if (underscores.join("")!==randomWord && wrongGuess.length<5){
+            var userGuess = event.key;
 
-    document.onkeyup = function(event) { 
-        var userGuess = event.key;
-
-        var indexes = [];
+            var indexes = [];
 
 
-        for(i = 0; i < randomWord.length; i++){
-            if (randomWord[i] === userGuess)
-                indexes.push(i);
+            for(i = 0; i < randomWord.length; i++){
+                if (randomWord[i] === userGuess)
+                    indexes.push(i);
+                }
+
+            for(a=0; a<=indexes.length; a++) {
+                if  (indexes[a]>-1) {
+                    underscores[indexes[a]] = userGuess;
+                    wordGuess.textContent = underscores.join(" ");
+                }
+
+                else if (wrongGuess.indexOf(userGuess)<0 && randomWord.indexOf(userGuess)<0 && userGuess.length===1){
+                wrongGuess.push(userGuess);
+                wrongGuesses.textContent = wrongGuess.join(" ")
+                wrongGuessesLeft.textContent = 5 - wrongGuess.length; 
+                }
             }
-
-        for(a=0; a<=indexes.length; a++) {
-            if  (indexes[a]>-1) {
-                underscores[indexes[a]] = userGuess;
-                wordGuess.textContent = underscores.join(" ");
+        // if you guess all the letters of the word you win!
+            if (underscores.join("")===randomWord){
+                    wins++;
+                    winCount.textContent = wins;
+                    setTimeout(reset, 1000);
+                }
+        // 5 wrong guesses and you lose!
+            else if(wrongGuess.join("").length>=5){
+                    loses++;
+                    loseCount.textContent = loses;
+                    setTimeout(reset, 1000);
             }
-
-            else if (wrongGuess.indexOf(userGuess)<0 && randomWord.indexOf(userGuess)<0 && userGuess.length===1){
-            wrongGuess.push(userGuess);
-            wrongGuesses.textContent = wrongGuess.join(" ")
-            wrongGuessesLeft.textContent = 5 - wrongGuess.length; 
-            }
-        }
-    // if you guess all the letters of the word you win!
-        if (underscores.join("")===randomWord){
-                wins++;
-                winCount.textContent = wins;
-                setTimeout(reset, 2000);
-            }
-    // 5 wrong guesses and you lose!
-        else if(wrongGuess.join("").length>=5){
-                loses++;
-                loseCount.textContent = loses;
-                setTimeout(reset, 2000);
         }
     }
-
+// =============================================================== reset game ===============================================================
 
 function reset(){
     //list of possible words
-    var randomWordArray =["abaaeebeaaabeeebbbb", "meteor", "universe"];
+    var randomWordArray =["earth", "meteor", "universe", "aliens", "jupiter", "galaxy", "spaceship", "asteroid"];
     //generate a random word from the array
     var randomWord = randomWordArray[Math.floor(Math.random() * randomWordArray.length)];
     // check the randomWord length
@@ -94,40 +96,42 @@ function reset(){
     // user guesses a letter
 
     document.onkeyup = function(event) { 
-        var userGuess = event.key;
+        if (underscores.join("")!==randomWord && wrongGuess.length<5){
+            var userGuess = event.key;
 
-        var indexes = [];
+            var indexes = [];
 
 
-        for(i = 0; i < randomWord.length; i++){
-            if (randomWord[i] === userGuess)
-                indexes.push(i);
+            for(i = 0; i < randomWord.length; i++){
+                if (randomWord[i] === userGuess)
+                    indexes.push(i);
+                }
+
+            for(a=0; a<=indexes.length; a++) {
+                if  (indexes[a]>-1) {
+                    underscores[indexes[a]] = userGuess;
+                    wordGuess.textContent = underscores.join(" ");
+                }
+
+                else if (wrongGuess.length<6 &&wrongGuess.indexOf(userGuess)<0 && randomWord.indexOf(userGuess)<0 && userGuess.length===1){
+                wrongGuess.push(userGuess);
+                wrongGuesses.textContent = wrongGuess.join(" ")
+                wrongGuessesLeft.textContent = 5 - wrongGuess.length; 
+                }
             }
-
-        for(a=0; a<=indexes.length; a++) {
-            if  (indexes[a]>-1) {
-                underscores[indexes[a]] = userGuess;
-                wordGuess.textContent = underscores.join(" ");
+            // if you guess all the letters of the word you win!
+            if (underscores.join("")===randomWord){
+                    wins++;
+                    winCount.textContent = wins;
+                    setTimeout(reset, 2000);
             }
-
-            else if (wrongGuess.length<6 &&wrongGuess.indexOf(userGuess)<0 && randomWord.indexOf(userGuess)<0 && userGuess.length===1){
-            wrongGuess.push(userGuess);
-            wrongGuesses.textContent = wrongGuess.join(" ")
-            wrongGuessesLeft.textContent = 5 - wrongGuess.length; 
+            // 5 wrong guesses and you lose!
+            else if(wrongGuess.join("").length>=5){
+                    loses++;
+                    loseCount.textContent = loses;
+                    setTimeout(reset, 2000);
             }
         }
-    // if you guess all the letters of the word you win!
-        if (underscores.join("")===randomWord){
-                wins++;
-                winCount.textContent = wins;
-                setTimeout(reset, 2000);
-            }
-    // 5 wrong guesses and you lose!
-        else if(wrongGuess.join("").length>=5){
-                loses++;
-                loseCount.textContent = loses;
-                setTimeout(reset, 2000);
-        }
+
     }
-
 }

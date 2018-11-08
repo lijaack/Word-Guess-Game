@@ -36,16 +36,6 @@ document.onkeyup = function(event) {
         wrongGuess.push(userGuess);
         wrongGuesses.textContent = wrongGuess.join(" ")
         }
-<<<<<<< HEAD
-    
-    // if you guess all the letters of the word you win!
-    if (underscores.join("")===randomWord){
-        alert("YOU WIN!");
-    }
-    // 5 wrong guesses and you lose!
-    else if(wrongGuess.join("").length===5){
-        alert("YOU LOSE!");
-=======
        
         // if you guess all the letters of the word you win!
         if (underscores.join("")===randomWord){
@@ -55,6 +45,4 @@ document.onkeyup = function(event) {
         else if(wrongGuess.join("").length>=5){
             alert("YOU LOSE!");
         }
->>>>>>> 843b873c8aadbf2b74153d867107cf8284d62417
     }
-} 

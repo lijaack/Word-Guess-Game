@@ -54,13 +54,13 @@ var loses = 0;
         if (underscores.join("")===randomWord){
                 wins++;
                 winCount.textContent = wins;
-                reset()
+                setTimeout(reset, 2000);
             }
     // 5 wrong guesses and you lose!
         else if(wrongGuess.join("").length>=5){
                 loses++;
                 loseCount.textContent = loses;
-                reset()
+                setTimeout(reset, 2000);
         }
     }
 
@@ -110,7 +110,7 @@ function reset(){
                 wordGuess.textContent = underscores.join(" ");
             }
 
-            else if (wrongGuess.indexOf(userGuess)<0 && randomWord.indexOf(userGuess)<0 && userGuess.length===1){
+            else if (wrongGuess.length<6 &&wrongGuess.indexOf(userGuess)<0 && randomWord.indexOf(userGuess)<0 && userGuess.length===1){
             wrongGuess.push(userGuess);
             wrongGuesses.textContent = wrongGuess.join(" ")
             wrongGuessesLeft.textContent = 5 - wrongGuess.length; 
@@ -120,13 +120,13 @@ function reset(){
         if (underscores.join("")===randomWord){
                 wins++;
                 winCount.textContent = wins;
-                reset()
+                setTimeout(reset, 2000);
             }
     // 5 wrong guesses and you lose!
         else if(wrongGuess.join("").length>=5){
                 loses++;
                 loseCount.textContent = loses;
-                reset()
+                setTimeout(reset, 2000);
         }
     }
 

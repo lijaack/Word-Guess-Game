@@ -8,6 +8,7 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 
     //generate a random word from the array
     var randomWord = randomWordArray[Math.floor(Math.random() * randomWordArray.length)];
+    var imgSRC = "assets/images/"+randomWord+".jpg";
     // check the randomWord length
     var positions = randomWord.length;
     //make new string with _
@@ -17,6 +18,7 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
     }
     //wrong guess array
     var wrongGuess =[];
+
     //grab html element
     var wordGuess = document.getElementById("word-guess");
     var wrongGuesses = document.getElementById("wrong-guesses");
@@ -58,30 +60,7 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
                     if (underscores.join("")===randomWord){
                             wins++;
                             winCount.textContent = wins;
-                            if (randomWord==="earth"){
-                                wordImages.setAttribute("src", "assets/images/earth.jpg");
-                            }
-                            else if(randomWord==="meteor"){
-                                wordImages.setAttribute("src", "assets/images/meteor.jpg");
-                            }
-                            else if(randomWord==="universe"){
-                                wordImages.setAttribute("src", "assets/images/universe.jpg");
-                            }
-                            else if(randomWord==="aliens"){
-                                wordImages.setAttribute("src", "assets/images/aliens.jpg");
-                            }
-                            else if(randomWord==="jupiter"){
-                                wordImages.setAttribute("src", "assets/images/jupiter.jpg");
-                            }
-                            else if(randomWord==="galaxy"){
-                                wordImages.setAttribute("src", "assets/images/galaxy.jpg");
-                            }
-                            else if(randomWord==="spaceship"){
-                                wordImages.setAttribute("src", "assets/images/spaceship.jpg");
-                            }
-                            else if(randomWord==="asteroid"){
-                                wordImages.setAttribute("src", "assets/images/asteroid.jpg");
-                            }
+                            wordImages.setAttribute("src", imgSRC);
                             setTimeout(reset, 1000);
                         }
                 // 5 wrong guesses and you lose!
@@ -96,20 +75,22 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 // =============================================================== reset game ===============================================================
 
 function reset(){
-    //list of possible words
+   
     var randomWordArray =["earth", "meteor", "universe", "aliens", "jupiter", "galaxy", "spaceship", "asteroid"];
-    //generate a random word from the array
+ 
     var randomWord = randomWordArray[Math.floor(Math.random() * randomWordArray.length)];
-    // check the randomWord length
+  
     var positions = randomWord.length;
-    //make new string with _
+ 
     var underscores =[];
     for (i=0; positions>i; i++){
         underscores.push("_")
     }
-    //wrong guess array
+   
     var wrongGuess =[];
-    //grab html element
+
+    var imgSRC = "assets/images/"+randomWord+".jpg";
+    
     var wordGuess = document.getElementById("word-guess");
     var wrongGuesses = document.getElementById("wrong-guesses");
     var wrongGuessesLeft = document.getElementById("wrong-guesses-left");
@@ -117,12 +98,12 @@ function reset(){
     var loseCount = document.getElementById("losecount");
 
 
-    //content shown when game starts
+    
         wordGuess.textContent = underscores.join(" ");
         wrongGuesses.textContent = "";
         wrongGuessesLeft.textContent="5";
 
-    // user guesses a letter
+    
 
     document.onkeyup = function(event) { 
         if (underscores.join("")!==randomWord && wrongGuess.length<5){
@@ -149,37 +130,14 @@ function reset(){
                     wrongGuessesLeft.textContent = 5 - wrongGuess.length; 
                     }
                 }
-                // if you guess all the letters of the word you win!
+                
                 if (underscores.join("")===randomWord){
                         wins++;
                         winCount.textContent = wins;
-                        if (randomWord==="earth"){
-                            wordImages.setAttribute("src", "assets/images/earth.jpg");
-                        }
-                        else if(randomWord==="meteor"){
-                            wordImages.setAttribute("src", "assets/images/meteor.jpg");
-                        }
-                        else if(randomWord==="universe"){
-                            wordImages.setAttribute("src", "assets/images/universe.jpg");
-                        }
-                        else if(randomWord==="aliens"){
-                            wordImages.setAttribute("src", "assets/images/aliens.jpg");
-                        }
-                        else if(randomWord==="jupiter"){
-                            wordImages.setAttribute("src", "assets/images/jupiter.jpg");
-                        }
-                        else if(randomWord==="galaxy"){
-                            wordImages.setAttribute("src", "assets/images/galaxy.jpg");
-                        }
-                        else if(randomWord==="spaceship"){
-                            wordImages.setAttribute("src", "assets/images/spaceship.jpg");
-                        }
-                        else if(randomWord==="asteroid"){
-                            wordImages.setAttribute("src", "assets/images/asteroid.jpg");
-                        }
+                        wordImages.setAttribute("src", imgSRC);
                         setTimeout(reset, 1000);
                 }
-                // 5 wrong guesses and you lose!
+              
                 else if(wrongGuess.join("").length>=5){
                         loses++;
                         loseCount.textContent = loses;

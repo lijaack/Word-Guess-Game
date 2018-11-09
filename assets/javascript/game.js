@@ -5,6 +5,7 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 
     //list of possible words
     var randomWordArray =["earth", "meteor", "universe", "aliens", "jupiter", "galaxy", "spaceship", "asteroid"];
+
     //generate a random word from the array
     var randomWord = randomWordArray[Math.floor(Math.random() * randomWordArray.length)];
     // check the randomWord length
@@ -20,6 +21,7 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
     var wordGuess = document.getElementById("word-guess");
     var wrongGuesses = document.getElementById("wrong-guesses");
     var wrongGuessesLeft = document.getElementById("wrong-guesses-left");
+    var wordImages = document.getElementById("word-images");
     var winCount = document.getElementById("wincount");
     var loseCount = document.getElementById("losecount");
     //content shown when game starts
@@ -34,7 +36,7 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
                 var userGuess = userGuessN.toLowerCase();
                 var indexes = [];
 
-                if (alphabet.indexOf(userGuess)>-1){
+                if (alphabet.indexOf(userGuess)>=0){
                     for(i = 0; i < randomWord.length; i++){
                         if (randomWord[i] === userGuess)
                             indexes.push(i);
@@ -56,6 +58,30 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
                     if (underscores.join("")===randomWord){
                             wins++;
                             winCount.textContent = wins;
+                            if (randomWord==="earth"){
+                                wordImages.setAttribute("src", "assets/images/earth.jpg");
+                            }
+                            else if(randomWord==="meteor"){
+                                wordImages.setAttribute("src", "assets/images/meteor.jpg");
+                            }
+                            else if(randomWord==="universe"){
+                                wordImages.setAttribute("src", "assets/images/universe.jpg");
+                            }
+                            else if(randomWord==="aliens"){
+                                wordImages.setAttribute("src", "assets/images/aliens.jpg");
+                            }
+                            else if(randomWord==="jupiter"){
+                                wordImages.setAttribute("src", "assets/images/jupiter.jpg");
+                            }
+                            else if(randomWord==="galaxy"){
+                                wordImages.setAttribute("src", "assets/images/galaxy.jpg");
+                            }
+                            else if(randomWord==="spaceship"){
+                                wordImages.setAttribute("src", "assets/images/spaceship.jpg");
+                            }
+                            else if(randomWord==="asteroid"){
+                                wordImages.setAttribute("src", "assets/images/asteroid.jpg");
+                            }
                             setTimeout(reset, 1000);
                         }
                 // 5 wrong guesses and you lose!
@@ -127,13 +153,37 @@ function reset(){
                 if (underscores.join("")===randomWord){
                         wins++;
                         winCount.textContent = wins;
-                        setTimeout(reset, 2000);
+                        if (randomWord==="earth"){
+                            wordImages.setAttribute("src", "assets/images/earth.jpg");
+                        }
+                        else if(randomWord==="meteor"){
+                            wordImages.setAttribute("src", "assets/images/meteor.jpg");
+                        }
+                        else if(randomWord==="universe"){
+                            wordImages.setAttribute("src", "assets/images/universe.jpg");
+                        }
+                        else if(randomWord==="aliens"){
+                            wordImages.setAttribute("src", "assets/images/aliens.jpg");
+                        }
+                        else if(randomWord==="jupiter"){
+                            wordImages.setAttribute("src", "assets/images/jupiter.jpg");
+                        }
+                        else if(randomWord==="galaxy"){
+                            wordImages.setAttribute("src", "assets/images/galaxy.jpg");
+                        }
+                        else if(randomWord==="spaceship"){
+                            wordImages.setAttribute("src", "assets/images/spaceship.jpg");
+                        }
+                        else if(randomWord==="asteroid"){
+                            wordImages.setAttribute("src", "assets/images/asteroid.jpg");
+                        }
+                        setTimeout(reset, 1000);
                 }
                 // 5 wrong guesses and you lose!
                 else if(wrongGuess.join("").length>=5){
                         loses++;
                         loseCount.textContent = loses;
-                        setTimeout(reset, 2000);
+                        setTimeout(reset, 1000);
                 }
             }
 

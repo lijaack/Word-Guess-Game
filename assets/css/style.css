@@ -20,3 +20,7 @@
 .uppercase {
     text-transform: uppercase;
 }
+
+img{
+    border-radius: 25px;
+}

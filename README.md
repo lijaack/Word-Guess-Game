@@ -1,6 +1,8 @@
 # Word-Guess-Game
-A space themed word guessing game that i made!
-You can play it here -->https://lijaack.github.io/Word-Guess-Game/
+A space themed word guessing game that i made!   
+You can play it here -->https://lijaack.github.io/Word-Guess-Game/   
+![picture](assets/images/Guess-The-Word.png)
+
 
 
 ## Built With
